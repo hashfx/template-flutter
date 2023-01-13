@@ -65,6 +65,13 @@ tasks:
       } fi
       flutter run
 
+  - name: Download Android API
+    command: |
+      mkdir -p /home/gitpod/.android
+      touch /home/gitpod/.android/repositories.cfg
+      export PATH=/usr/lib/dart/bin:$FLUTTER_HOME/bin:$ANDROID_HOME/bin:$PATH
+      /home/gitpod/android-sdk/tools/bin/sdkmanager "platform-tools" "platforms;android-28" "build-tools;28.0.3"
+
 ports:
   - port: 5900
     onOpen: ignore
